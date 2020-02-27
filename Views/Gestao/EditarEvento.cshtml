@@ -1,0 +1,40 @@
+@model LivePass.DTO.EventoDTO
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="text-center">
+  <h2>Editar Evento</h2>
+</div>
+
+<form class="form-horizontal" asp-action="Atualizar" asp-controller="Evento" method="POST">
+
+    <input type="hidden" asp-for="Id">
+
+    <label asp-for="Nome">Nome</label>
+    <input type="text" class="form-control" asp-for="Nome" placeholder="Nome do Evento">
+    <span asp-validation-for="Nome"></span>
+
+    <label asp-for="Capacidade">Capacidade</label>
+    <input type="text" class="form-control" asp-for="Capacidade" placeholder="Capacidade">
+    <span asp-validation-for="Capacidade"></span>
+
+    <label asp-for="Data">Data</label>
+    <input type="text" class="form-control" asp-for="Data" placeholder="Data">
+    <span asp-validation-for="Data"></span>
+
+    <label asp-for="Valor">Valor</label>
+    <input type="text" class="form-control" asp-for="Valor" placeholder="Valor">
+    <span asp-validation-for="Valor"></span>
+
+    <label asp-for="CasaShow">CasaShow</label>
+    <input type="text" class="form-control" asp-for="CasaShow" placeholder="CasaShow">
+
+
+    <label asp-for="Categoria">Categoria</label>
+    <input type="text" class="form-control" asp-for="Categoria" placeholder="Categoria">
+
+<hr>
+    <button class="btn btn-success">Atualizar</button>
+</form>

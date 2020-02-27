@@ -1,0 +1,48 @@
+@model IEnumerable<LivePass.Models.CasaShow>
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="text-center">
+    <h2>Todas Casas de Show</h2>
+</div>
+<a asp-action="NovaCasaShow" asp-controller="Gestao" class="btn btn-success">Nova Casa de Show</a>
+
+<hr>
+
+<script>
+    $(document).ready( function () {
+        $('#casaShows').DataTable();
+    });
+</script>
+
+@foreach(var casaShow in Model);
+
+<table id="casaShows" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var casaShow in Model){
+            <tr>
+                <td>@casaShow.Id</td>
+                <td>@casaShow.Nome</td>
+                <td>@casaShow.End</td>
+
+                <td><a class="btn btn-primary" href="/Gestao/EditarCasaShow/@casaShow.Id">Editar</a> 
+
+                <form asp-action="Deletar" asp-controller="CasaShow" style="display: inline;">
+                    <input type="hidden" name="Id" id="Id" value="@casaShow.Id">
+                    <button class="btn btn-danger">Deletar</button>
+                </form>
+                </td>                                
+            </tr>
+        }
+    </tbody>
+</table>
+

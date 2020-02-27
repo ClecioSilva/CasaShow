@@ -1,0 +1,48 @@
+@model IEnumerable<LivePass.Models.Categoria>
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="text-center">
+    <h2>Todas Categorias</h2>
+</div>
+<a asp-action="NovaCategoria" asp-controller="Gestao" class="btn btn-success">Nova Categoria</a>
+
+<hr>
+
+<script>
+    $(document).ready( function () {
+        $('#categorias').DataTable();
+    });
+</script>
+
+@foreach(var categoria in Model);
+
+<table id="categorias" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Imagem</th>
+            <th>Id</th>
+            <th>Estilo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach(var categoria in Model){
+            <tr>
+                <td>@categoria.Imagem</td>
+                <td>@categoria.Id</td>
+                <td>@categoria.Estilo</td>      
+                <td><a class="btn btn-primary" href="/Gestao/EditarCategoria/@categoria.Id">Editar</a> 
+                
+                <form asp-action="Deletar" asp-controller="Categoria" style="display: inline;">
+                    <input type="hidden" name="Id" id="Id" value="@categoria.Id">
+                    <button class="btn btn-danger">Deletar</button>
+                </form>
+                </td>                                
+            </tr>
+        }
+    </tbody>
+</table>
+

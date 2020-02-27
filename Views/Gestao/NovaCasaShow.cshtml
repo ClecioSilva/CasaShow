@@ -1,0 +1,22 @@
+@model LivePass.DTO.CasaShowDTO
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="text-center">
+  <h2>Cadastro Casa de Show</h2>
+</div>
+
+<form class="form-horizontal" asp-action="Salvar" asp-controller="CasaShow" method="POST">
+    <input type="hidden" asp-for="Id" value="0">
+
+    <input type="text" class="form-control" asp-for="Nome" placeholder="Nome Casa de Show">
+    <span asp-validation-for="Nome" style="color:red"></span>
+    <input type="text" class="form-control" asp-for="End" placeholder="Endereço">
+    <span asp-validation-for="End" style="color:red"></span>
+
+<hr>
+
+    <button class="btn btn-success">Cadastrar</button>
+</form>

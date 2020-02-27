@@ -1,0 +1,26 @@
+@model LivePass.DTO.CategoriaDTO
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="text-center">
+  <h2>Editar Categoria</h2>
+</div>
+
+<form class="form-horizontal" asp-action="Atualizar" asp-controller="Categoria" method="POST">
+    <input type="hidden" asp-for="Id">
+
+    <label asp-for="Estilo">Estilo</label>
+    <input type="text" class="form-control" asp-for="Estilo" placeholder="Estilo Categoria">
+    <span asp-validation-for="Estilo"></span>
+
+    <label asp-for="Imagem">Imagem</label>
+    <input type="text" class="form-control" asp-for="Imagem" placeholder="Imagem">
+    <!--<div class="form-group">
+    <input type="file" class="form-group-file" asp-for="Imagem" name="files" accept=".png, .jpg, .jpeg"/>
+    <small id="imgHelp" class="form-text text-muted">Caso queira alterar a imagem, faça o upload de um arquivo no formato .jpg .jpeg.png.</small>
+    </div>-->
+<hr>
+    <button class="btn btn-success">Atualizar</button>
+</form>

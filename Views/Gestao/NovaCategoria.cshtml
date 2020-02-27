@@ -1,0 +1,47 @@
+@model LivePass.DTO.CategoriaDTO
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="text-center">
+  <h2>Cadastro Categoria</h2>
+</div>
+
+<form class="form-horizontal" asp-action="Salvar" autocomplete="off" asp-controller="Categoria" method="POST">
+    <input type="hidden" asp-for="Id" value="0">
+
+    <input type="text" class="form-control" asp-for="Estilo" placeholder="Estilo Musical">
+    <span asp-validation-for="Estilo" style="color:red"></span>
+    <hr>
+    <!--<input type="text" class="form-control" asp-for="Imagem" placeholder="Imagem">-->
+    
+    <div class="form-group">
+    <input type="file" class="form-group-file" asp-for="Imagem" name="files" accept=".png, .jpg, .jpeg"
+    required oninvalid="this.setCustomValidity('Selecione uma imagem ')" 
+    oninput="try{setCustomValidity('')}catch(e){}"/>
+    <small id="imgHelp" class="form-text text-muted">Faça o upload de uma imagem no formato .jpg .jpeg.png.</small>
+    </div>
+
+<hr>
+
+    <button class="btn btn-success">Cadastrar</button>
+</form>
+
+
+<!--           FORM CADASTRAR nICOLAS
+<form entype="multipart/form-data" method="post" asp-action="Salvar">
+<label asp-for="Estilo" class="mt-4">Estilo</label>
+<input type="text" asp-for="Estilo" class="form-control mb-2" placeholder="Nome do Genero">
+<span asp-validation-for="Estilo"></span>
+<dl>
+    <dt>
+        <label asp-for="Imagem"></label>
+        </dt>
+        <dd>
+            <input asp-for="Imagem" type="file">
+			<span asp-validation-for="Imagem"></span>
+		</dd>
+	</dl>
+	<input class="btn" type="submit" value="Upload"/>
+</form>-->
