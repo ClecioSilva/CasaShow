@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LivePass.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class CreateCasaShow : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,7 +54,8 @@ namespace LivePass.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(nullable: true),
-                    End = table.Column<string>(nullable: true)
+                    End = table.Column<string>(nullable: true),
+                    Status = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,7 +69,8 @@ namespace LivePass.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Estilo = table.Column<string>(nullable: true),
-                    Imagem = table.Column<string>(nullable: true)
+                    Imagem = table.Column<string>(nullable: true),
+                    Status = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -192,7 +194,8 @@ namespace LivePass.Migrations
                     Data = table.Column<DateTime>(nullable: false),
                     Valor = table.Column<float>(nullable: false),
                     CasaShowId = table.Column<int>(nullable: true),
-                    CategoriaId = table.Column<int>(nullable: true)
+                    CategoriaId = table.Column<int>(nullable: true),
+                    Status = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

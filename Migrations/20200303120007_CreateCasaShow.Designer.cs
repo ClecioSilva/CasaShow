@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LivePass.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200208175313_CreateLivePassSchema")]
-    partial class CreateLivePassSchema
+    [Migration("20200303120007_CreateCasaShow")]
+    partial class CreateCasaShow
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,9 @@ namespace LivePass.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
                     b.HasKey("Id");
 
                     b.ToTable("CasaShows");
@@ -47,6 +50,9 @@ namespace LivePass.Migrations
 
                     b.Property<string>("Imagem")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
 
@@ -73,6 +79,9 @@ namespace LivePass.Migrations
 
                     b.Property<string>("Nome")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<float>("Valor")
                         .HasColumnType("float");

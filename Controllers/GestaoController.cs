@@ -15,8 +15,8 @@ namespace LivePass.Controllers
 
         //------------------------ Gestao controle CATEGORIAS ---------------------------------------------
         public IActionResult Categorias(){
-            var categorias = database.Categorias.Where(cat => cat.Status == true).ToString();
-            return View(categorias);
+            var categoria = database.Categorias.Where(cat => cat.Status == true).ToList();
+            return View(categoria);
         }
 
         public IActionResult NovaCategoria(){
